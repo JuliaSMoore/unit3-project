@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="card text-center">
+<div class="melon-name">
+{{melon.common_name}}
+</div>
+<div class="melon-info">
+<img src="{{melon.image_url}}" class="melon-image">
+<div class="info-container">
+<strong>Color:</strong>
+{{melon.color}}
+</div>
+<div class="info-container">
+<strong>Seeds:</strong>
+{% if melon.seedless %}
+Seedless!
+{% else %}
+Warning! This melon has seeds!
+{%endif%}
+</div>
+<div class="info-container">
+<strong>Price:</strong>
+<strong>${{melon.price_str()}}</strong>
+</div>
+<div class="info-container">
+<a href="{{url_for('add_to_cart', melon_id=melon.melon_id)}}" class="btn btn-info add-btn">Add to Cart</a>
+</div>
+</div>
+</div>
+{% endblock %}

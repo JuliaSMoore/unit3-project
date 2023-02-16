@@ -1,0 +1,47 @@
+.melon-image {
+    height: 200px;
+    width: 200px;
+}
+
+#melon-list {
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: auto;
+}
+
+.wrapper {
+    margin: auto;
+}
+
+.melon-name {
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.melon-info {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.info-container {
+    min-width: 20%;
+    align-self: center;
+}
+
+.qty {
+    margin: 5px;
+}
+
+.thead {
+    text-align: center;
+}
+
+.tbody {
+    text-align: center;
+}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block body %}
+<table class="table table-striped mt-3">
+  <thead class="thead">
+    <tr>
+      <th>Melon Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class="tbody">
+    {% for melon in cart_melons %}
+    <tr>
+      <td>{{ melon.common_name }}</td>
+      <td>
+      {% if melon.quantity > 1 %}
+      <a href="{{url_for('decrease_quantity', melon_id=melon.melon_id)}}"><button class="btn btn-info">-</button></a>
+      {% else %}
+      <a href="{{url_for('delete_from_cart', melon_id=melon.melon_id)}}"><button class="btn btn-info">-</button></a>
+      {% endif %}
+      <span class="qty">
+      {{ melon.quantity }}
+      </span>
+      <a href="{{url_for('increase_quantity', melon_id=melon.melon_id)}}"><button class="btn btn-info">+</button></a></td>
+      <td>${{ "%0.2f" | format(melon.price) }}</td>
+      <td>${{ "%0.2f" | format(melon.total_cost) }}</td>
+      <td><a href="{{url_for('delete_from_cart', melon_id=melon.melon_id)}}" class="btn btn-info">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h3>Total: ${{ "%0.2f" | format(order_total) }}</h3>
+<a href="/empty-cart" class="btn btn-info">Empty Cart</a>
+{% endblock %}
